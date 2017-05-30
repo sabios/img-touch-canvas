@@ -17,9 +17,14 @@ http://github.com/rombdn/img-touch-canvas
             throw 'ImgZoom constructor: missing arguments canvas or path';
         }
 
+        this.options = options
+        
         this.canvas         = options.canvas;
         this.canvas.width   = window.innerWidth;
         this.canvas.height  = window.innerHeight;
+        if(this.options.percent) {
+            this.canvas.height = window.innerHeight * this.options.percent
+        }
         this.context        = this.canvas.getContext('2d');
 
         this.imgTexture = new Image();
@@ -212,6 +217,9 @@ http://github.com/rombdn/img-touch-canvas
                     this.init = false
                     this.canvas.width   = window.innerWidth;
                     this.canvas.height  = window.innerHeight;
+                    if(this.options.percent) {
+                        this.canvas.height  = window.innerHeight * this.options.percent;        
+                    } 
                 }.bind(this),
                 touchstart: function(e) {
                     this.lastX          = null;
