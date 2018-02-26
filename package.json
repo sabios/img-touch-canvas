@@ -1,0 +1,6 @@
+{
+    "name": "img-touch-canvas",
+    "version": "0.0.1",
+    "main" :"img-touch-canvas.js",
+    "description": "img-touch-canvas"
+  }
